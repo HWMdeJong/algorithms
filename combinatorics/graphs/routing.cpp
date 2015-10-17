@@ -13,10 +13,9 @@ vector<int64_t> dijkstra(int64_t source, vector<vector<int64_t> > adjacency_matr
 	for(int64_t i = 0; i < n; i++) {
 		int64_t current = -1;
 		for(int64_t j = 0; j < n; j++) {
-			if(visited[j]) {
-				continue;
-			}
-			if(current == -1 || distances[j] < distances[current]) {
+			if(!visited[j] &&
+				(current == -1 ||
+				distances[j] < distances[current])) {
 				current = j;
 			}
 		}
